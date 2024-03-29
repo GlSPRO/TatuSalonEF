@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище tatuSalonPRAKTIKAModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="appointments">
+          <Key>
+            <PropertyRef Name="appointment_id" />
+          </Key>
+          <Property Name="appointment_id" Type="int" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="service_id" Type="int" />
+          <Property Name="master_id" Type="int" />
+          <Property Name="client_Familiya" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="client_Otchestvo" Type="varchar" MaxLength="20" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="phone_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="int" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="50" />
+          <Property Name="client_Familiya" Type="varchar" MaxLength="50" />
+          <Property Name="client_Otchestvo" Type="varchar" MaxLength="50" />
+          <Property Name="phone_number" Type="varchar" MaxLength="15" />
+          <Property Name="age" Type="int" />
+        </EntityType>
+        <EntityType Name="masters">
+          <Key>
+            <PropertyRef Name="master_id" />
+          </Key>
+          <Property Name="master_id" Type="int" Nullable="false" />
+          <Property Name="master_name" Type="varchar" MaxLength="50" />
+          <Property Name="rating" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="services_1">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="service_name" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <Association Name="FK__appointme__clien__72C60C4A">
+          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__maste__74AE54BC">
+          <End Role="masters" Type="Self.masters" Multiplicity="0..1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="masters">
+              <PropertyRef Name="master_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__servi__73BA3083">
+          <End Role="services_1" Type="Self.services_1" Multiplicity="0..1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="services_1">
+              <PropertyRef Name="service_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="service_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище tatuSalonPRAKTIKAModelContainer">
+          <EntitySet Name="appointments" EntityType="Self.appointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="masters" EntityType="Self.masters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="services_1" EntityType="Self.services_1" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__appointme__clien__72C60C4A" Association="Self.FK__appointme__clien__72C60C4A">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__maste__74AE54BC" Association="Self.FK__appointme__maste__74AE54BC">
+            <End Role="masters" EntitySet="masters" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__servi__73BA3083" Association="Self.FK__appointme__servi__73BA3083">
+            <End Role="services_1" EntitySet="services_1" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tatuSalonPRAKTIKAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="appointments">
+          <Key>
+            <PropertyRef Name="appointment_id" />
+          </Key>
+          <Property Name="appointment_id" Type="Int32" Nullable="false" />
+          <Property Name="client_id" Type="Int32" />
+          <Property Name="service_id" Type="Int32" />
+          <Property Name="master_id" Type="Int32" />
+          <Property Name="client_Familiya" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_Otchestvo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="phone_number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="clients" Relationship="Self.FK__appointme__clien__72C60C4A" FromRole="appointments" ToRole="clients" />
+          <NavigationProperty Name="masters" Relationship="Self.FK__appointme__maste__74AE54BC" FromRole="appointments" ToRole="masters" />
+          <NavigationProperty Name="services_1" Relationship="Self.FK__appointme__servi__73BA3083" FromRole="appointments" ToRole="services_1" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="Int32" Nullable="false" />
+          <Property Name="client_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="client_Familiya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="client_Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__clien__72C60C4A" FromRole="clients" ToRole="appointments" />
+        </EntityType>
+        <EntityType Name="masters">
+          <Key>
+            <PropertyRef Name="master_id" />
+          </Key>
+          <Property Name="master_id" Type="Int32" Nullable="false" />
+          <Property Name="master_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rating" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__maste__74AE54BC" FromRole="masters" ToRole="appointments" />
+        </EntityType>
+        <EntityType Name="services_1">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="Int32" Nullable="false" />
+          <Property Name="service_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="8" Scale="2" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__servi__73BA3083" FromRole="services_1" ToRole="appointments" />
+        </EntityType>
+        <Association Name="FK__appointme__clien__72C60C4A">
+          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__maste__74AE54BC">
+          <End Role="masters" Type="Self.masters" Multiplicity="0..1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="masters">
+              <PropertyRef Name="master_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__servi__73BA3083">
+          <End Role="services_1" Type="Self.services_1" Multiplicity="0..1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="services_1">
+              <PropertyRef Name="service_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="service_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tatuSalonPRAKTIKAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="appointments" EntityType="Self.appointments" />
+          <EntitySet Name="clients" EntityType="Self.clients" />
+          <EntitySet Name="masters" EntityType="Self.masters" />
+          <EntitySet Name="services_1" EntityType="Self.services_1" />
+          <AssociationSet Name="FK__appointme__clien__72C60C4A" Association="Self.FK__appointme__clien__72C60C4A">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__maste__74AE54BC" Association="Self.FK__appointme__maste__74AE54BC">
+            <End Role="masters" EntitySet="masters" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__servi__73BA3083" Association="Self.FK__appointme__servi__73BA3083">
+            <End Role="services_1" EntitySet="services_1" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище tatuSalonPRAKTIKAModelContainer" CdmEntityContainer="tatuSalonPRAKTIKAEntities">
+          <EntitySetMapping Name="appointments">
+            <EntityTypeMapping TypeName="tatuSalonPRAKTIKAModel.appointments">
+              <MappingFragment StoreEntitySet="appointments">
+                <ScalarProperty Name="appointment_id" ColumnName="appointment_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="master_id" ColumnName="master_id" />
+                <ScalarProperty Name="client_Familiya" ColumnName="client_Familiya" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="client_Otchestvo" ColumnName="client_Otchestvo" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="tatuSalonPRAKTIKAModel.clients">
+              <MappingFragment StoreEntitySet="clients">
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="client_Familiya" ColumnName="client_Familiya" />
+                <ScalarProperty Name="client_Otchestvo" ColumnName="client_Otchestvo" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="age" ColumnName="age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masters">
+            <EntityTypeMapping TypeName="tatuSalonPRAKTIKAModel.masters">
+              <MappingFragment StoreEntitySet="masters">
+                <ScalarProperty Name="master_id" ColumnName="master_id" />
+                <ScalarProperty Name="master_name" ColumnName="master_name" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services_1">
+            <EntityTypeMapping TypeName="tatuSalonPRAKTIKAModel.services_1">
+              <MappingFragment StoreEntitySet="services_1">
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="service_name" ColumnName="service_name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

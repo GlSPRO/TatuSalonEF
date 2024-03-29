@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea31fe0edccb4b7ba0520b5df5575b38" Name="Diagram1">
+        <EntityTypeShape EntityType="tatuSalonPRAKTIKAModel.appointments" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="tatuSalonPRAKTIKAModel.clients" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tatuSalonPRAKTIKAModel.masters" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tatuSalonPRAKTIKAModel.services_1" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="tatuSalonPRAKTIKAModel.FK__appointme__clien__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="tatuSalonPRAKTIKAModel.FK__appointme__maste__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="tatuSalonPRAKTIKAModel.FK__appointme__servi__73BA3083" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
