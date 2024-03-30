@@ -24,8 +24,7 @@ namespace PRAKTIKA1EF
         public int age { get; set; }
         public int phone_number { get; set; }
     
-        public virtual clients clients {  private get; set; }
-
+        public virtual clients clients {private get; set; }
         public virtual masters masters { private get; set; }
         public virtual services_1 services_1 { private get; set; }
     }

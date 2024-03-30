@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище tatuSalonPRAKTIKAModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище tatuSalonPRAKTIKAModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="appointments">
           <Key>
             <PropertyRef Name="appointment_id" />
           </Key>
-          <Property Name="appointment_id" Type="int" Nullable="false" />
+          <Property Name="appointment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="client_id" Type="int" />
           <Property Name="service_id" Type="int" />
           <Property Name="master_id" Type="int" />
@@ -23,7 +23,7 @@
           <Key>
             <PropertyRef Name="client_id" />
           </Key>
-          <Property Name="client_id" Type="int" Nullable="false" />
+          <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="client_name" Type="varchar" MaxLength="50" />
           <Property Name="client_Familiya" Type="varchar" MaxLength="50" />
           <Property Name="client_Otchestvo" Type="varchar" MaxLength="50" />
@@ -34,7 +34,7 @@
           <Key>
             <PropertyRef Name="master_id" />
           </Key>
-          <Property Name="master_id" Type="int" Nullable="false" />
+          <Property Name="master_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="master_name" Type="varchar" MaxLength="50" />
           <Property Name="rating" Type="decimal" Precision="4" Scale="2" />
         </EntityType>
@@ -42,11 +42,11 @@
           <Key>
             <PropertyRef Name="service_id" />
           </Key>
-          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="service_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="service_name" Type="varchar" MaxLength="50" />
           <Property Name="price" Type="decimal" Precision="8" Scale="2" />
         </EntityType>
-        <Association Name="FK__appointme__clien__72C60C4A">
+        <Association Name="FK__appointme__clien__31B762FC">
           <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
           <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -58,7 +58,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__appointme__maste__74AE54BC">
+        <Association Name="FK__appointme__maste__339FAB6E">
           <End Role="masters" Type="Self.masters" Multiplicity="0..1" />
           <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -70,7 +70,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__appointme__servi__73BA3083">
+        <Association Name="FK__appointme__servi__32AB8735">
           <End Role="services_1" Type="Self.services_1" Multiplicity="0..1" />
           <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -87,21 +87,20 @@
           <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="masters" EntityType="Self.masters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="services_1" EntityType="Self.services_1" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__appointme__clien__72C60C4A" Association="Self.FK__appointme__clien__72C60C4A">
+          <AssociationSet Name="FK__appointme__clien__31B762FC" Association="Self.FK__appointme__clien__31B762FC">
             <End Role="clients" EntitySet="clients" />
             <End Role="appointments" EntitySet="appointments" />
           </AssociationSet>
-          <AssociationSet Name="FK__appointme__maste__74AE54BC" Association="Self.FK__appointme__maste__74AE54BC">
+          <AssociationSet Name="FK__appointme__maste__339FAB6E" Association="Self.FK__appointme__maste__339FAB6E">
             <End Role="masters" EntitySet="masters" />
             <End Role="appointments" EntitySet="appointments" />
           </AssociationSet>
-          <AssociationSet Name="FK__appointme__servi__73BA3083" Association="Self.FK__appointme__servi__73BA3083">
+          <AssociationSet Name="FK__appointme__servi__32AB8735" Association="Self.FK__appointme__servi__32AB8735">
             <End Role="services_1" EntitySet="services_1" />
             <End Role="appointments" EntitySet="appointments" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tatuSalonPRAKTIKAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
