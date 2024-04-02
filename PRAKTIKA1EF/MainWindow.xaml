@@ -5,11 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRAKTIKA1EF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="ClientDG"/>
-        <Button x:Name="Click_Master" Content="Таблица мастеров" HorizontalAlignment="Left" Margin="400,328,0,0" VerticalAlignment="Top" Height="38" Width="154" Click="Click_Master_Click"/>
-        <Button x:Name="Click_Servises" Content="Таблица услуг" HorizontalAlignment="Left" Margin="226,328,0,0" VerticalAlignment="Top" Height="37" Width="154" Click="Click_Servises_Click"/>
-        <Button x:Name="Click_Clients" Content="Таблица клиентов" HorizontalAlignment="Left" Margin="53,328,0,0" VerticalAlignment="Top" Height="37" Width="154" Click="Click_Clients_Click"/>
+        Title="MainWindow" Height="715" Width="789">
+    <Grid Margin="0,0,10,-6">
+        <DataGrid x:Name="ClientDG" Margin="0,0,0,488" SelectionChanged="ClientDG_SelectionChanged_1"/>
+        <Button x:Name="Click_Master" Content="Таблица мастеров" HorizontalAlignment="Left" Margin="499,598,0,0" VerticalAlignment="Top" Height="38" Width="154" Click="Click_Master_Click"/>
+        <Button x:Name="Click_Servises" Content="Таблица услуг" HorizontalAlignment="Left" Margin="325,598,0,0" VerticalAlignment="Top" Height="37" Width="154" Click="Click_Servises_Click"/>
+        <Button x:Name="Click_Clients" Content="Таблица клиентов" HorizontalAlignment="Left" Margin="152,598,0,0" VerticalAlignment="Top" Height="37" Width="154" Click="Click_Clients_Click"/>
+        <Button x:Name="ADDstring" Content="Добавить" HorizontalAlignment="Left" Margin="152,536,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FF98C62D" Click="ADDstring_Button_Click"/>
+        <Button x:Name="Update" Content="Изменить" HorizontalAlignment="Left" Margin="325,536,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FFE0FCA1" Click="Update_Click"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="499,536,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FFFF6442" Click="Delete_Click"/>
+        <TextBox x:Name="TB_ServiceID" HorizontalAlignment="Left" Margin="150,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29" TextChanged="TB_age_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,275,0,0" TextWrapping="Wrap" Text="ID Услуги:" VerticalAlignment="Top" Height="27" Width="59"/>
+        <TextBox x:Name="TB_MastersID" HorizontalAlignment="Left" Margin="150,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29" TextChanged="TB_age_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,307,0,0" TextWrapping="Wrap" Text="ID Мастера:" VerticalAlignment="Top" Height="27" Width="91"/>
+        <TextBox x:Name="TB_Familiya" HorizontalAlignment="Left" Margin="150,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29" TextChanged="TB_age_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,337,0,0" TextWrapping="Wrap" Text="Фамилия клиента:" VerticalAlignment="Top" Height="27" Width="110"/>
+        <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="150,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29" TextChanged="TB_age_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,371,0,0" TextWrapping="Wrap" Text="Имя клиента:" VerticalAlignment="Top" Height="27" Width="96"/>
+        <TextBox x:Name="TB_Otchestvo" HorizontalAlignment="Left" Margin="150,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29" TextChanged="TB_age_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,403,0,0" TextWrapping="Wrap" Text="Отчество клиента:" VerticalAlignment="Top" Height="27" Width="110"/>
+        <TextBox x:Name="TB_age" HorizontalAlignment="Left" Margin="150,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29" TextChanged="TB_age_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,435,0,0" TextWrapping="Wrap" Text="Возраст:" VerticalAlignment="Top" Height="27" Width="59"/>
+        <TextBox x:Name="TB_phone_number" HorizontalAlignment="Left" Margin="150,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,467,0,0" TextWrapping="Wrap" Text="Номер телефона:" VerticalAlignment="Top" Height="27" Width="96"/>
+        <TextBox x:Name="TB_Update" HorizontalAlignment="Left" Margin="150,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="30"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,504,0,0" TextWrapping="Wrap" Text="Изменить данные" VerticalAlignment="Top" Height="27" Width="124"/>
     </Grid>
 </Window>

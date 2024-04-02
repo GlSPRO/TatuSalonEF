@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRAKTIKA1EF"
         mc:Ignorable="d"
-        Title="Masters" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="Masters1"/>
+        Title="Masters" Height="655" Width="794">
+    <Grid Margin="0,0,10,-6">
+        <DataGrid x:Name="Masters1" Margin="0,0,0,379" SelectionChanged="Masters1_SelectionChanged"/>
+        <Button x:Name="ADDstring" Content="Добавить" HorizontalAlignment="Left" Margin="211,534,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FF98C62D" Click="ADDstring_Button_Click"/>
+        <Button x:Name="Update" Content="Изменить" HorizontalAlignment="Left" Margin="384,534,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FFE0FCA1" Click="Update_Click"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="558,534,0,0" VerticalAlignment="Top" Height="38" Width="154" Background="#FFFF6442" Click="Delete_Click"/>
+        <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="209,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="87,345,0,0" TextWrapping="Wrap" Text="Имя мастера:" VerticalAlignment="Top" Height="27" Width="96"/>
+        <TextBox x:Name="TB_age" HorizontalAlignment="Left" Margin="209,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="87,377,0,0" TextWrapping="Wrap" Text="Рейтинг:" VerticalAlignment="Top" Height="27" Width="110"/>
     </Grid>
 </Window>

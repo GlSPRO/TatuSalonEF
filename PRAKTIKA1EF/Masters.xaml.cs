@@ -28,9 +28,57 @@ namespace PRAKTIKA1EF
 
         }
 
-        private void MastersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ADDstring_Button_Click(object sender, RoutedEventArgs e)
         {
+            masters b = new masters();
 
+            b.master_name = TB_name.Text;
+            b.rating = Convert.ToDecimal(TB_age.Text);
+
+            AllDannye.masters.Add(b);
+
+            AllDannye.SaveChanges();
+            Masters1.ItemsSource = AllDannye.masters.ToList();
+
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            if (Masters1.SelectedItem != null)
+            {
+                var select = Masters1.SelectedItem as masters;
+
+                select.master_name = TB_name.Text;
+                select.rating = Convert.ToDecimal(TB_age.Text);
+
+
+                AllDannye.SaveChanges();
+                Masters1.ItemsSource = AllDannye.masters.ToList();
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (Masters1.SelectedItem != null)
+            {
+                AllDannye.masters.Remove(Masters1.SelectedItem as masters);
+
+                AllDannye.SaveChanges();
+                Masters1.ItemsSource = AllDannye.masters.ToList();
+            }
+        }
+
+        private void Masters1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Masters1.SelectedItem != null)
+            {
+                var select = Masters1.SelectedItem as masters;
+
+                TB_name.Text = select.master_name;
+                TB_age.Text = select.rating.ToString();
+
+            }
         }
     }
 }
+

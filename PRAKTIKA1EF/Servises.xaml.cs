@@ -28,9 +28,56 @@ namespace PRAKTIKA1EF
 
         }
 
-        private void ServisesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void ADDstring_Button_Click(object sender, RoutedEventArgs e)
+        {
+            services_1 b = new services_1();
+
+            b.service_name = TB_Otchestvo.Text;
+            b.price = Convert.ToDecimal(TB_age.Text);
+
+            AllDannye.services_1.Add(b);
+
+            AllDannye.SaveChanges();
+            Services.ItemsSource = AllDannye.services_1.ToList();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            if (Services.SelectedItem != null)
+            {
+                var select = Services.SelectedItem as services_1;
+
+                select.service_name = TB_Otchestvo.Text;
+                select.price = Convert.ToDecimal(TB_age.Text);
+
+
+                AllDannye.SaveChanges();
+                Services.ItemsSource = AllDannye.services_1.ToList();
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (Services.SelectedItem != null)
+            {
+                AllDannye.services_1.Remove(Services.SelectedItem as services_1);
+
+                AllDannye.SaveChanges();
+                Services.ItemsSource = AllDannye.services_1.ToList();
+            }
+        }
+
+        private void Services_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Services.SelectedItem != null)
+            {
+                var select = Services.SelectedItem as services_1;
+
+                TB_Otchestvo.Text = select.service_name;
+                TB_age.Text = select.price.ToString();
+
+            }
         }
     }
 }
